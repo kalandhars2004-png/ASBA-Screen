@@ -1,0 +1,36 @@
+{
+  "data": [
+    {
+      "Applicant Nickname": "KDX",
+      "Applicant Name": "Kalandhar Mohamed",
+      "PAN": "ABCDE1234F",
+      "Deposit Type": "Fixed Deposit",
+      "DPIDClientID": "IN30267912345678",
+      "Action": "View"
+    },
+    {
+      "Applicant Nickname": "VINO",
+      "Applicant Name": "Vino Kumar",
+      "PAN": "BCDEF2345G",
+      "Deposit Type": "Recurring Deposit",
+      "DPIDClientID": "IN30267923456789",
+      "Action": "View"
+    },
+    {
+      "Applicant Nickname": "SASA",
+      "Applicant Name": "Sasa Raj",
+      "PAN": "CDEFG3456H",
+      "Deposit Type": "Fixed Deposit",
+      "DPIDClientID": "IN30267934567890",
+      "Action": "View"
+    },
+    {
+      "Applicant Nickname": "MAIN",
+      "Applicant Name": "Main Kumar",
+      "PAN": "DEFGH4567J",
+      "Deposit Type": "Savings",
+      "DPIDClientID": "IN30267945678901",
+      "Action": "View"
+    }
+  ]
+}

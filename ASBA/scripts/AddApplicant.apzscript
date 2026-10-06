@@ -1,0 +1,137 @@
+continuee = () => {
+
+    let params = {};
+
+    params.scr = "Re";
+
+    apz.launchScreen(params);
+
+};
+
+
+apz.app.onLoad_AddApplicant = () => {
+
+    apz.server.callServer({
+
+        appId: apz.app.appId,
+
+        ifaceName: "recentapplication",
+
+        buildReq: "N",
+
+        paintResp: "Y",
+
+        req: {},
+
+        callBack: recentApplicationCB
+
+    });
+
+};
+
+
+recentApplicationCB = (resp) => {
+
+    if (resp.errors) {
+
+        apz.dispMsg({
+            type: "E",
+            message: resp.errors[0].errorMessage
+        });
+
+        return;
+    }
+
+};
+
+
+cancel = () => {
+
+    let params = {};
+
+    params.scr = "dashboard";
+
+    apz.launchScreen(params);
+
+};
+
+
+ContinueApplication = () => {
+
+    let nickname = apz.getElmValue(
+        "ASBA__AddApplicant__el_txa_2"
+    );
+
+    let pan = apz.getElmValue(
+        "ASBA__AddApplicant__el_txa_3"
+    );
+
+    let dpId = apz.getElmValue(
+        "ASBA__AddApplicant__el_txa_4"
+    );
+
+    let applicantName = apz.getElmValue(
+        "ASBA__AddApplicant__el_txa_5"
+    );
+
+    let clientId = apz.getElmValue(
+        "ASBA__AddApplicant__el_txa_7"
+    );
+
+
+    // Get selected Depository Type
+    let selectedRadio = document.querySelector(
+        'input[name="ASBA__AddApplicant__el_txa_6_"]:checked'
+    );
+
+    let depositoryType = "";
+
+    if (selectedRadio) {
+        depositoryType = selectedRadio.getAttribute("aria-label");
+    }
+
+
+    let priority = apz.getElmValue(
+        "ASBA__AddApplicant__el_dpd_1"
+    );
+
+    let declaration = apz.getElmValue(
+        "ASBA__AddApplicant__el_cbx_1_lbl"
+    );
+
+
+    // Store all application details globally
+    apz.app.applicationData = {
+
+        nickname: nickname,
+
+        pan: pan,
+
+        dpId: dpId,
+
+        applicantName: applicantName,
+
+        clientId: clientId,
+
+        depositoryType: depositoryType,
+
+        priority: priority,
+
+        declaration: declaration
+
+    };
+
+
+    console.log(
+        "Application Data :",
+        apz.app.applicationData
+    );
+
+
+    let params = {};
+
+    params.scr = "Review";
+
+    apz.launchScreen(params);
+
+};

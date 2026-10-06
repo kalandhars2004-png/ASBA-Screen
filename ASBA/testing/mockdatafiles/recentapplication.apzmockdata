@@ -1,0 +1,34 @@
+{
+  "data": [
+    {
+      "name": "Arke Banerjee",
+      "pan": "8A3F",
+      "status": "Approved"
+    },
+    {
+      "name": "James Chen",
+      "pan": "546F",
+      "status": "Pending"
+    },
+    {
+      "name": "Julia James",
+      "pan": "534F",
+      "status": "Rejected"
+    },
+    {
+      "name": "Arke Banerjee",
+      "pan": "8A3F",
+      "status": "Approved"
+    },
+    {
+      "name": "James Chen",
+      "pan": "546F",
+      "status": "Pending"
+    },
+    {
+      "name": "Julia James",
+      "pan": "534F",
+      "status": "Rejected"
+    }
+  ]
+}

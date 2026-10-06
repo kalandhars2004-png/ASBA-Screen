@@ -1,0 +1,256 @@
+// ==============================
+// DASHBOARD
+// ==============================
+
+Dashboard = () => {
+
+    let params = {};
+
+    params.scr = "dashboard";
+
+    apz.launchScreen(params);
+
+};
+
+
+// ==============================
+// ADD APPLICANT
+// ==============================
+
+AddApplicant = () => {
+
+    let params = {};
+
+    params.scr = "AddApplicant";
+
+    apz.launchScreen(params);
+
+};
+
+
+// ==============================
+// CONFIRM APPLICATION
+// ==============================
+
+confirm = () => {
+
+    let data = apz.app.applicationData;
+
+    if (!data) {
+
+        apz.dispMsg({
+            type: "E",
+            message: "Application data not found"
+        });
+
+        return;
+    }
+
+    // Generate Request ID
+    let now = new Date();
+
+    let requestId =
+        "ASBA-" +
+        now.getFullYear() +
+        String(now.getMonth() + 1).padStart(2, "0") +
+        String(now.getDate()).padStart(2, "0") +
+        "-" +
+        String(now.getHours()).padStart(2, "0") +
+        String(now.getMinutes()).padStart(2, "0") +
+        String(now.getSeconds()).padStart(2, "0") +
+        "-" +
+        Math.floor(1000 + Math.random() * 9000);
+
+
+    // Generate Initiated Date & Time
+    let initiatedDateTime =
+        String(now.getDate()).padStart(2, "0") +
+        "-" +
+        String(now.getMonth() + 1).padStart(2, "0") +
+        "-" +
+        now.getFullYear() +
+        " " +
+        String(now.getHours()).padStart(2, "0") +
+        ":" +
+        String(now.getMinutes()).padStart(2, "0") +
+        ":" +
+        String(now.getSeconds()).padStart(2, "0");
+
+
+    // Store Success page data globally
+    apz.app.applicationData = {
+
+        ...data,
+
+        requestId: requestId,
+
+        initiatedDateTime: initiatedDateTime
+
+    };
+
+
+    let params = {};
+
+    params.scr = "Success";
+
+    apz.launchScreen(params);
+
+};
+
+
+// ==============================
+// EDIT APPLICATION
+// ==============================
+
+edit = () => {
+
+    let params = {};
+
+    params.scr = "AddApplicant";
+
+    apz.launchScreen(params);
+
+};
+
+
+// ==============================
+// SUCCESS PAGE ONLOAD
+// ==============================
+
+apz.app.onLoad_Success = () => {
+
+    let data = apz.app.applicationData;
+
+    if (!data) {
+        return;
+    }
+
+
+    // ==============================
+    // REQUEST ID
+    // ==============================
+
+    let requestId = document.getElementById(
+        "ASBA__Success__sc_col_75_li"
+    );
+
+    if (requestId) {
+
+        requestId.textContent =
+            data.requestId || "";
+
+    }
+
+
+    // ==============================
+    // INITIATED DATE & TIME
+    // ==============================
+
+    let initiatedDateTime = document.getElementById(
+        "ASBA__Success__sc_col_77_li"
+    );
+
+    if (initiatedDateTime) {
+
+        initiatedDateTime.textContent =
+            data.initiatedDateTime || "";
+
+    }
+
+
+    // ==============================
+    // NICKNAME
+    // ==============================
+
+    let nickname = document.getElementById(
+        "ASBA__Success__el_txt_68_txtcnt"
+    );
+
+    if (nickname) {
+
+        nickname.textContent =
+            data.nickname || "";
+
+    }
+
+
+    // ==============================
+    // DEPOSIT TYPE
+    // ==============================
+
+    let depositType = document.getElementById(
+        "ASBA__Success__el_txt_74_txtcnt"
+    );
+
+    if (depositType) {
+
+        depositType.textContent =
+            data.depositoryType || "";
+
+    }
+
+
+    // ==============================
+    // APPLICATION NAME
+    // ==============================
+
+    let applicantName = document.getElementById(
+        "ASBA__Success__el_txt_70_txtcnt"
+    );
+
+    if (applicantName) {
+
+        applicantName.textContent =
+            data.applicantName || "";
+
+    }
+
+
+    // ==============================
+    // DP ID
+    // ==============================
+
+    let dpId = document.getElementById(
+        "ASBA__Success__el_txt_76_txtcnt"
+    );
+
+    if (dpId) {
+
+        dpId.textContent =
+            data.dpId || "";
+
+    }
+
+
+    // ==============================
+    // PAN
+    // ==============================
+
+    let pan = document.getElementById(
+        "ASBA__Success__el_txt_72_txtcnt"
+    );
+
+    if (pan) {
+
+        pan.textContent =
+            data.pan || "";
+
+    }
+
+
+    // ==============================
+    // CLIENT ID
+    // ==============================
+
+    let clientId = document.getElementById(
+        "ASBA__Success__el_txt_78_txtcnt"
+    );
+
+    if (clientId) {
+
+        clientId.textContent =
+            data.clientId || "";
+
+    }
+
+};

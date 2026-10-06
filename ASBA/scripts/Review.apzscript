@@ -1,0 +1,100 @@
+apz.app.onLoad_Review = () => {
+
+    let data = apz.app.applicationData;
+
+    if (!data) {
+        return;
+    }
+
+    // Nickname
+    let nickname = document.getElementById(
+        "ASBA__Review__el_txt_4"
+    );
+
+    if (nickname) {
+        nickname.textContent = data.nickname || "";
+    }
+
+
+    // Deposit Type
+    let depositType = document.getElementById(
+        "ASBA__Review__el_txt_9_txtcnt"
+    );
+
+    if (depositType) {
+        depositType.textContent = data.depositoryType || "";
+    }
+
+
+    // Application Name
+    let applicantName = document.getElementById(
+        "ASBA__Review__el_txt_13_txtcnt"
+    );
+
+    if (applicantName) {
+        applicantName.textContent = data.applicantName || "";
+    }
+
+
+    // DP ID
+    let dpId = document.getElementById(
+        "ASBA__Review__el_txt_15_txtcnt"
+    );
+
+    if (dpId) {
+        dpId.textContent = data.dpId || "";
+    }
+
+
+    // PAN
+    let pan = document.getElementById(
+        "ASBA__Review__el_txt_17_txtcnt"
+    );
+
+    if (pan) {
+        pan.textContent = data.pan || "";
+    }
+
+
+    // Client ID
+    let clientId = document.getElementById(
+        "ASBA__Review__el_txt_19_txtcnt"
+    );
+
+    if (clientId) {
+        clientId.textContent = data.clientId || "";
+    }
+
+
+    // Priority
+    let priority = document.getElementById(
+        "ASBA__Review__el_txt_22_txtcnt"
+    );
+
+    if (priority) {
+        priority.textContent = data.priority || "";
+    }
+
+};
+
+
+confirm = () => {
+
+    let params = {};
+
+    params.scr = "Success";
+
+    apz.launchScreen(params);
+
+};
+
+
+edit = () => {
+
+    let params = {};
+
+    params.scr = "AddApplicant";
+
+    apz.launchScreen(params);
+
+};

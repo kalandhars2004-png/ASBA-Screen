@@ -1,0 +1,36 @@
+{
+  "data": [
+    {
+      "IPO Details": "Varun Beverages Limited | ₹ 400 Cr • IPO",
+      "Application ID": "APP1001",
+      "Applied Date": "12 Aug 2025",
+      "BID Amount": "₹13,650",
+      "BID Status": "PENDING",
+      "Action": "View"
+    },
+    {
+      "IPO Details": "Ather Energy Private Ltd | ₹ 800 Cr • FPO",
+      "Application ID": "APP1002",
+      "Applied Date": "13 Aug 2025",
+      "BID Amount": "₹35,000",
+      "BID Status": "APPROVED",
+      "Action": "View"
+    },
+    {
+      "IPO Details": "Urban Mobility Solutions | ₹ 1,200 Cr • IPO",
+      "Application ID": "APP1003",
+      "Applied Date": "15 Aug 2025",
+      "BID Amount": "₹13,600",
+      "BID Status": "REJECTED",
+      "Action": "View"
+    },
+    {
+      "IPO Details": "Silverline Pharmaceuticals | ₹ 950 Cr • FPO",
+      "Application ID": "APP1004",
+      "Applied Date": "16 Aug 2025",
+      "BID Amount": "₹18,900",
+      "BID Status": "PENDING",
+      "Action": "View"
+    }
+  ]
+}

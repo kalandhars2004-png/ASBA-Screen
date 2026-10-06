@@ -1,0 +1,21 @@
+Dashboard  = () => {
+
+    let params = {};
+
+    params.scr = "dashboard";
+
+    apz.launchScreen(params);
+
+};
+
+
+
+AddNewIPO = () => {
+
+    let params = {};
+
+    params.scr = "dashboard";
+
+    apz.launchScreen(params);
+
+}; 

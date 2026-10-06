@@ -1,0 +1,9 @@
+dashboard  = ()=>  {
+    
+    let params = {};
+
+    params.scr = "dashboard";
+
+    apz.launchScreen(params);
+
+};

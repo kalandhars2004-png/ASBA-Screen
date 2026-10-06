@@ -1,0 +1,19 @@
+confirm = () => {
+
+    let params = {};
+
+    params.scr = "ApplySuccess";
+
+    apz.launchScreen(params);
+
+};
+
+edit = () => {
+
+    let params = {};
+
+    params.scr = "Apply";
+
+    apz.launchScreen(params);
+
+};

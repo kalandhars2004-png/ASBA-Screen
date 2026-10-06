@@ -1,0 +1,204 @@
+// ==============================
+// DASHBOARD ONLOAD
+// ==============================
+
+
+addApplicant = () =>{
+    let params = {};
+
+    params.scr = "AddApplicantAndDemat";
+
+    apz.launchScreen(params);
+}
+apz.app.onLoad_dashboard = () => {
+
+    console.log("Dashboard Loaded");
+
+    apz.server.callServer({
+        appId: apz.app.appId,
+        ifaceName: "getAllIPOS",
+        buildReq: "N",
+        paintResp: "Y",
+        req: {},
+        callBack: getAllIPOSCB
+    });
+
+    apz.server.callServer({
+        appId: apz.app.appId,
+        ifaceName: "getAllApplication",
+        buildReq: "N",
+        paintResp: "Y",
+        req: {},
+        callBack: getAllApplicationCB
+    });
+
+    apz.server.callServer({
+        appId: apz.app.appId,
+        ifaceName: "ManageApplication",
+        buildReq: "N",
+        paintResp: "Y",
+        req: {},
+        callBack: manageApplicationCB
+    });
+
+    apz.server.callServer({
+        appId: apz.app.appId,
+        ifaceName: "dashboard",
+        buildReq: "N",
+        paintResp: "Y",
+        req: {},
+        callBack: dashboardCB
+    });
+};
+
+
+// ==============================
+// GET ALL IPOs
+// ==============================
+
+getAllIPOSCB = (resp) => {
+
+    if (resp.errors) {
+
+        apz.dispMsg({
+            type: "E",
+            message: resp.errors[0].errorMessage
+        });
+
+        return;
+    }
+
+    let data = resp.res["ASBA__getAllIPOS_Res"];
+
+    if (!data || !data.data) {
+
+        apz.dispMsg({
+            type: "E",
+            message: "IPO data not found"
+        });
+
+        return;
+    }
+
+    // Store IPO list globally
+    apz.app.ipoList = data.data;
+
+    console.log("IPO List Stored :", apz.app.ipoList);
+};
+
+
+// ==============================
+// OTHER CALLBACKS
+// ==============================
+
+getAllApplicationCB = (resp) => {
+
+    if (resp.errors) {
+
+        apz.dispMsg({
+            type: "E",
+            message: resp.errors[0].errorMessage
+        });
+
+        return;
+    }
+
+};
+
+
+manageApplicationCB = (resp) => {
+
+    if (resp.errors) {
+
+        apz.dispMsg({
+            type: "E",
+            message: resp.errors[0].errorMessage
+        });
+
+        return;
+    }
+
+};
+
+
+dashboardCB = (resp) => {
+
+    if (resp.errors) {
+
+        apz.dispMsg({
+            type: "E",
+            message: resp.errors[0].errorMessage
+        });
+
+        return;
+    }
+
+};
+
+
+// ==============================
+// APPLY
+// ==============================
+Apply = (element) => {
+
+    let row = Number(element.getAttribute("rowno"));
+
+    console.log("Clicked Row :", row);
+
+    let ipoList = apz.app.ipoList;
+
+    if (!ipoList || !Array.isArray(ipoList)) {
+
+        apz.dispMsg({
+            type: "E",
+            message: "IPO list not available"
+        });
+
+        return;
+    }
+
+    // Appzillon rowno is 0-based
+    let selectedIPO = ipoList[row];
+
+    if (!selectedIPO) {
+
+        console.log("IPO List :", ipoList);
+        console.log("Row :", row);
+
+        apz.dispMsg({
+            type: "E",
+            message: "Selected IPO not found"
+        });
+
+        return;
+    }
+
+    // Store selected IPO globally
+    apz.app.selectedIPO = selectedIPO;
+
+    console.log("Selected IPO :", apz.app.selectedIPO);
+
+    let params = {};
+
+    params.scr = "Apply";
+
+    apz.launchScreen(params);
+};
+
+  view = ()=>  {
+      let params = {};
+
+    params.scr = "View";
+
+    apz.launchScreen(params);
+  }
+  
+  
+   
+  withdraw = ()=>  {
+      let params = {};
+
+    params.scr = "Withdraw";
+
+    apz.launchScreen(params);
+  } 
